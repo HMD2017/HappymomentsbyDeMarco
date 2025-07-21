@@ -1,0 +1,25 @@
+import os
+from zipfile import ZipFile
+
+# Contenuti dei file
+site_files = {
+    "index.html": "<!DOCTYPE html>... [codice della home qui]",
+    "prodotti.html": "<!DOCTYPE html>... [codice dei prodotti qui]",
+    "galleria.html": "<!DOCTYPE html>... [codice della galleria qui]",
+    "contatti.html": "<!DOCTYPE html>... [codice dei contatti qui]",
+    "css/style.css": "body { font-family: Arial; ... }"
+}
+
+# Crea struttura e scrive i file
+os.makedirs("site/css", exist_ok=True)
+for filename, content in site_files.items():
+    with open(f"site/{filename}", "w", encoding="utf-8") as f:
+        f.write(content)
+
+# Crea file zip
+with ZipFile("sito_hm_demarco.zip", "w") as zipf:
+    for foldername, subfolders, filenames in os.walk("site"):
+        for filename in filenames:
+            filepath = os.path.join(foldername, filename)
+            arcname = os.path.relpath(filepath, "site")
+            zipf.write(filepath, arcname)
