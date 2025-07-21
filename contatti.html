@@ -2,24 +2,51 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8" />
-  <title>Contatti - HM De Marco</title>
-  <link rel="stylesheet" href="css/style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Happy Moments - Contatti</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f0f0f0; text-align: center; }
+    header {
+      background: white;
+      padding: 10px 30px;
+      display: flex; justify-content: space-between; align-items: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      position: sticky; top: 0; z-index: 1000;
+    }
+    nav a {
+      margin-right: 20px; color: #333; font-weight: bold; text-decoration: none; font-size: 1.1rem;
+    }
+    nav a:hover { color: #c42d82; }
+    header img { height: 70px; }
+
+    main {
+      padding: 40px 20px;
+      max-width: 600px;
+      margin: auto;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      font-size: 1.1rem;
+    }
+    a {
+      color: #c42d82;
+      text-decoration: underline;
+    }
+  </style>
 </head>
 <body>
   <header>
-    <div class="logo">HM De Marco</div>
     <nav>
-      <ul>
-        <li><a href="index.html">Chi Siamo</a></li>
-        <li><a href="prodotti.html">Prodotti</a></li>
-        <li><a href="galleria.html">Galleria</a></li>
-        <li><a href="contatti.html" class="active">Contatti</a></li>
-      </ul>
+      <a href="index.html">Home</a>
+      <a href="galleria.html">Galleria</a>
+      <a href="contatti.html">Contatti</a>
     </nav>
+    <img src="img/logo.jpg" alt="Logo Happy Moments" />
   </header>
+
   <main>
-    <h1>Contattaci</h1>
-    <p>Scrivici per informazioni, preventivi o collaborazioni.</p>
+    <h1>Contatti</h1>
+    <p>Per informazioni, scrivici a <a href="mailto:info@happymoments.it">info@happymoments.it</a> o chiamaci al <strong>0123-456789</strong>.</p>
   </main>
 </body>
 </html>
