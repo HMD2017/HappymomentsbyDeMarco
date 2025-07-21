@@ -38,7 +38,7 @@
     }
 
     .content {
-      max-width: 800px;
+      max-width: 900px;
       margin: 50px auto;
       background: rgba(255, 255, 255, 0.2);
       padding: 30px;
@@ -56,6 +56,20 @@
       font-size: 18px;
       line-height: 1.6;
     }
+
+    .image-row {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin: 30px 0;
+    }
+
+    .image-row img {
+      width: 250px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.4);
+    }
   </style>
 </head>
 <body>
@@ -71,6 +85,12 @@
 
   <div class="content">
     <h1>Benvenuti su Happy Moments</h1>
+
+    <div class="image-row">
+      <img src="img/foto1.jpg" alt="Evento 1" />
+      <img src="img/foto2.jpg" alt="Evento 2" />
+    </div>
+
     <p>
       Happy Moments by De Marco organizza eventi privati e aziendali su misura: feste, cerimonie e matrimoni curati nei minimi dettagli.  
       Il nostro obiettivo è creare momenti unici, ricchi di emozioni, che rimangano nel cuore di chi partecipa.
