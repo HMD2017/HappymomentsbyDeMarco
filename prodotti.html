@@ -2,24 +2,139 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8" />
-  <title>Servizi - HM De Marco</title>
-  <link rel="stylesheet" href="css/style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Happy Moments - Servizi</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f9f9f9;
+    }
+
+    header {
+      background: linear-gradient(90deg, #ffd1dc, #cde7f0);
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav a {
+      margin-right: 20px;
+      color: #333;
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 1.1rem;
+    }
+
+    nav a:hover {
+      color: #c42d82;
+    }
+
+    header img {
+      height: 60px;
+    }
+
+    main {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 20px;
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 30px;
+      color: #c42d82;
+    }
+
+    .strengths-container {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    .strength-box {
+      padding: 20px;
+      border-radius: 12px;
+      background: white;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transition: background 0.3s, transform 0.2s, color 0.3s;
+      cursor: pointer;
+      text-align: left;
+    }
+
+    .strength-box h2 {
+      margin-top: 0;
+      color: #333;
+    }
+
+    .strength-box p {
+      color: #555;
+      margin-bottom: 0;
+    }
+
+    .strength-box:hover {
+      transform: translateY(-5px);
+    }
+
+    .strength-box.experience:hover {
+      background: #97d1dc;
+      color: white;
+    }
+
+    .strength-box.personalization:hover {
+      background: #fae411;
+      color: #333;
+    }
+
+    .strength-box.flexibility:hover {
+      background: #eb3d12;
+      color: white;
+    }
+
+    @media (min-width: 700px) {
+      .strengths-container {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+  </style>
 </head>
 <body>
   <header>
-    <div class="logo">HM De Marco</div>
     <nav>
-      <ul>
-        <li><a href="index.html">Chi Siamo</a></li>
-        <li><a href="prodotti.html" class="active">Prodotti</a></li>
-        <li><a href="galleria.html">Galleria</a></li>
-        <li><a href="contatti.html">Contatti</a></li>
-      </ul>
+      <a href="index.html">Home</a>
+      <a href="galleria.html">Galleria</a>
+      <a href="contatti.html">Contatti</a>
+      <a href="servizi.html">Servizi</a>
     </nav>
+    <img src="img/logo.jpg" alt="Logo Happy Moments" />
   </header>
+
   <main>
-    <h1>I nostri prodotti</h1>
-    <p>Qui troverai la nostra selezione di prodotti.</p>
+    <h1>I punti di forza di Happy Moments</h1>
+    <div class="strengths-container">
+      <div class="strength-box experience">
+        <h2>🎉 Esperienza</h2>
+        <p>Con 20 anni di esperienza alle spalle come catena leader in Italia, abbiamo acquisito una grande competenza e conoscenza del settore.</p>
+      </div>
+      <div class="strength-box personalization">
+        <h2>🧩 Cura su misura</h2>
+        <p>Ogni evento è unico. Offriamo soluzioni personalizzate studiate attentamente in base ai desideri e allo stile dei nostri clienti.</p>
+      </div>
+      <div class="strength-box flexibility">
+        <h2>🤝 Flessibilità e affidabilità</h2>
+        <p>Siamo sempre pronti ad adattarci a ogni esigenza, offrendo massima affidabilità e supporto in ogni fase dell’organizzazione.</p>
+      </div>
+    </div>
   </main>
 </body>
 </html>
