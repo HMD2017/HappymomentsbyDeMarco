@@ -2,19 +2,25 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Happy Moments - Home</title>
   <style>
-    /* Reset e base */
-    body, html {
-      margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #f9f9f9; color: #333;
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
-    /* Header */
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #fdfbff;
+      color: #333;
+      line-height: 1.6;
+    }
+
     header {
       background: linear-gradient(90deg, #ffd1dc, #cde7f0);
-      padding: 15px 30px;
+      padding: 20px 40px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -24,77 +30,59 @@
       z-index: 1000;
     }
 
+    nav a {
+      margin-right: 25px;
+      color: #333;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+
+    nav a:hover {
+      color: #c42d82;
+    }
+
     header img {
       height: 60px;
     }
 
-    nav a {
-      margin-right: 25px;
-      color: #333;
-      font-weight: 600;
-      text-decoration: none;
-      font-size: 1.1rem;
-      padding: 5px 8px;
-      border-radius: 6px;
-      transition: background-color 0.3s, color 0.3s;
-    }
-
-    nav a:hover, nav a:focus {
-      background-color: #c42d82;
-      color: white;
-      outline: none;
-    }
-
-    /* Main container */
     main {
-      max-width: 960px;
-      margin: 40px auto;
-      background: white;
-      padding: 30px 40px;
-      border-radius: 12px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin: auto;
     }
 
-    /* Benvenuto */
-    #welcome {
+    .hero {
       text-align: center;
       margin-bottom: 50px;
     }
-    #welcome h1 {
+
+    .hero h1 {
+      font-size: 2.5rem;
       color: #c42d82;
-      font-size: 2.8rem;
-      margin-bottom: 15px;
+      margin-bottom: 10px;
     }
-    #welcome p {
+
+    .hero p {
       font-size: 1.2rem;
-      color: #555;
-      max-width: 700px;
-      margin: 0 auto;
-      line-height: 1.5;
+      color: #666;
     }
 
-    /* Punti di forza */
-    #punti-di-forza h2 {
-      color: #c42d82;
-      text-align: center;
-      margin-bottom: 40px;
-      font-size: 2.2rem;
-      font-weight: 700;
-    }
-
-    .strengths-container {
+    .strengths {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 25px;
+      gap: 30px;
+      margin-top: 40px;
     }
 
-    @media(min-width: 700px) {
-      .strengths-container {
+    @media (min-width: 768px) {
+      .strengths {
         grid-template-columns: repeat(3, 1fr);
       }
     }
 
     .strength-box {
+      position: relative;
       background: #fff;
       border: 2px solid transparent;
       border-radius: 12px;
@@ -102,46 +90,53 @@
       box-shadow: 0 4px 15px rgb(196 45 130 / 0.15);
       cursor: pointer;
       transition: background-color 0.3s, border-color 0.3s;
-      position: relative;
       color: #333;
-      outline-offset: 4px;
+      height: 180px;
+      overflow: hidden;
     }
 
     .strength-box h3 {
       margin: 0 0 10px 0;
       font-weight: 700;
       font-size: 1.4rem;
+      z-index: 2;
+      position: relative;
     }
 
     .strength-box .desc {
-      color: #555;
-      max-height: 0;
-      overflow: hidden;
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      right: 20px;
       opacity: 0;
-      transition: opacity 0.3s ease, max-height 0.3s ease;
-      margin: 0;
+      transform: translateY(10px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      background: rgba(255,255,255,0.95);
+      padding: 10px;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      z-index: 1;
     }
 
-    .strength-box:hover,
-    .strength-box:focus {
-      background-color: #fde8f0;
-      border-color: #c42d82;
-      color: #9a1e5f;
-      outline: none;
-    }
-
-    .strength-box:hover .desc,
-    .strength-box:focus .desc {
+    .strength-box:hover .desc {
       opacity: 1;
-      max-height: 100px;
-      margin-top: 10px;
+      transform: translateY(0);
+    }
+
+    footer {
+      background: #cde7f0;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+      color: #555;
+      margin-top: 60px;
     }
   </style>
 </head>
 <body>
   <header>
     <nav>
-      <a href="index.html" aria-current="page">Home</a>
+      <a href="index.html">Home</a>
       <a href="galleria.html">Galleria</a>
       <a href="contatti.html">Contatti</a>
       <a href="servizi.html">Servizi</a>
@@ -150,28 +145,31 @@
   </header>
 
   <main>
-    <section id="welcome" aria-label="Presentazione">
-      <h1>Benvenuti a Happy Moments</h1>
-      <p>Organizziamo eventi unici con passione e professionalità, creando ricordi indimenticabili per te e i tuoi ospiti.</p>
-    </section>
+    <div class="hero">
+      <h1>Benvenuti da Happy Moments by De Marco</h1>
+      <p>Organizziamo più di 50 eventi all'anno, con clienti da tutta la Svizzera e l'Italia e collaborazioni con i migliori fornitori.</p>
+    </div>
 
-    <section id="punti-di-forza" aria-label="Punti di forza Happy Moments">
-      <h2>I nostri punti di forza</h2>
-      <div class="strengths-container">
-        <div class="strength-box experience" tabindex="0" role="button" aria-expanded="false" aria-controls="exp-desc">
-          <h3>🎉 Esperienza</h3>
-          <p id="exp-desc" class="desc">Organizziamo più di 50 eventi all'anno, con clienti da tutta la Svizzera e l'Italia e collaborazioni con i migliori fornitori.</p>
-        </div>
-        <div class="strength-box personalization" tabindex="0" role="button" aria-expanded="false" aria-controls="pers-desc">
-          <h3>🧩 Cura su misura</h3>
-          <p id="pers-desc" class="desc">Progettiamo ogni evento con dettagli personalizzati, dal tema agli allestimenti, in base alle tue idee e desideri.</p>
-        </div>
-        <div class="strength-box flexibility" tabindex="0" role="button" aria-expanded="false" aria-controls="flex-desc">
-          <h3>🤝 Adattabilità e fiducia</h3>
-          <p id="flex-desc" class="desc">Siamo sempre pronti a gestire cambiamenti in corsa e a supportarti con flessibilità e affidabilità.</p>
-        </div>
+    <section class="strengths">
+      <div class="strength-box">
+        <h3>🎉 Esperienza</h3>
+        <div class="desc">Con 20 anni di esperienza alle spalle come catena leader in Italia, abbiamo acquisito una grande competenza e conoscenza del settore.</div>
+      </div>
+
+      <div class="strength-box">
+        <h3>🧩 Cura su misura</h3>
+        <div class="desc">Creiamo feste personalizzate per ogni occasione: battesimi, compleanni, matrimoni o eventi aziendali, con allestimenti unici.</div>
+      </div>
+
+      <div class="strength-box">
+        <h3>🤝 Flessibilità & Affidabilità</h3>
+        <div class="desc">Ci adattiamo a ogni richiesta, anche last-minute, mantenendo sempre uno standard elevato di qualità e organizzazione.</div>
       </div>
     </section>
   </main>
+
+  <footer>
+    © 2025 Happy Moments by De Marco – Tutti i diritti riservati
+  </footer>
 </body>
 </html>
