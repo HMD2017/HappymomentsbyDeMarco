@@ -2,39 +2,32 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Happy Moments - Home</title>
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
     body {
-      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #fdfbff;
-      color: #333;
-      line-height: 1.6;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f9f9f9;
     }
 
     header {
       background: linear-gradient(90deg, #ffd1dc, #cde7f0);
-      padding: 20px 40px;
+      padding: 15px 30px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
       position: sticky;
       top: 0;
       z-index: 1000;
     }
 
     nav a {
-      margin-right: 25px;
+      margin-right: 20px;
       color: #333;
-      text-decoration: none;
       font-weight: bold;
+      text-decoration: none;
       font-size: 1.1rem;
     }
 
@@ -47,89 +40,102 @@
     }
 
     main {
-      padding: 40px 20px;
       max-width: 1200px;
-      margin: auto;
+      margin: 40px auto;
+      padding: 20px;
+    }
+
+    section {
+      margin-bottom: 60px;
+    }
+
+    h1, h2 {
+      text-align: center;
+      color: #c42d82;
     }
 
     .hero {
+      background: linear-gradient(to right, #ffe4ec, #d5f1fa);
+      padding: 60px 20px;
+      border-radius: 20px;
       text-align: center;
-      margin-bottom: 50px;
-    }
-
-    .hero h1 {
-      font-size: 2.5rem;
-      color: #c42d82;
-      margin-bottom: 10px;
     }
 
     .hero p {
       font-size: 1.2rem;
-      color: #666;
+      max-width: 700px;
+      margin: 0 auto;
     }
 
-    .strengths {
+    .strengths-container {
       display: grid;
-      grid-template-columns: 1fr;
-      gap: 30px;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
       margin-top: 40px;
     }
 
-    @media (min-width: 768px) {
-      .strengths {
-        grid-template-columns: repeat(3, 1fr);
-      }
-    }
-
     .strength-box {
-      position: relative;
-      background: #fff;
-      border: 2px solid transparent;
+      padding: 20px;
       border-radius: 12px;
-      padding: 25px 20px;
-      box-shadow: 0 4px 15px rgb(196 45 130 / 0.15);
+      background: white;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s, background 0.3s;
       cursor: pointer;
-      transition: background-color 0.3s, border-color 0.3s;
-      color: #333;
-      height: 180px;
-      overflow: hidden;
     }
 
-    .strength-box h3 {
-      margin: 0 0 10px 0;
-      font-weight: 700;
-      font-size: 1.4rem;
-      z-index: 2;
-      position: relative;
+    .strength-box:hover {
+      transform: scale(1.03);
     }
 
-    .strength-box .desc {
-      position: absolute;
-      bottom: 20px;
-      left: 20px;
-      right: 20px;
-      opacity: 0;
-      transform: translateY(10px);
-      transition: opacity 0.3s ease, transform 0.3s ease;
-      background: rgba(255,255,255,0.95);
-      padding: 10px;
+    .strength-box:hover .example {
+      display: block;
+    }
+
+    .example {
+      display: none;
+      font-size: 0.9rem;
+      margin-top: 10px;
+      color: #666;
+    }
+
+    .gallery-preview {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 15px;
+      margin-top: 30px;
+    }
+
+    .gallery-preview img {
+      width: 100%;
+      border-radius: 10px;
+      object-fit: cover;
+      height: 150px;
+    }
+
+    .cta {
+      background: #c42d82;
+      color: white;
+      text-align: center;
+      padding: 40px 20px;
+      border-radius: 12px;
+    }
+
+    .cta a {
+      background: white;
+      color: #c42d82;
+      padding: 10px 20px;
       border-radius: 8px;
-      font-size: 0.95rem;
-      z-index: 1;
-    }
-
-    .strength-box:hover .desc {
-      opacity: 1;
-      transform: translateY(0);
+      text-decoration: none;
+      font-weight: bold;
+      display: inline-block;
+      margin-top: 15px;
     }
 
     footer {
-      background: #cde7f0;
       text-align: center;
       padding: 20px;
+      background: #f1f1f1;
       font-size: 0.9rem;
-      color: #555;
-      margin-top: 60px;
     }
   </style>
 </head>
@@ -145,31 +151,63 @@
   </header>
 
   <main>
-    <div class="hero">
-      <h1>Benvenuti da Happy Moments by De Marco</h1>
-      <p>Organizziamo più di 50 eventi all'anno, con clienti da tutta la Svizzera e l'Italia e collaborazioni con i migliori fornitori.</p>
-    </div>
+    <section class="hero">
+      <h1>Benvenuti da Happy Moments</h1>
+      <p>Organizziamo più di 50 eventi all'anno, con clienti da tutta la Svizzera e l’Italia e collaborazioni con i migliori fornitori. Felicità, colori e professionalità in ogni dettaglio!</p>
+    </section>
 
-    <section class="strengths">
-      <div class="strength-box">
-        <h3>🎉 Esperienza</h3>
-        <div class="desc">Con 20 anni di esperienza alle spalle come catena leader in Italia, abbiamo acquisito una grande competenza e conoscenza del settore.</div>
+    <section>
+      <h2>I nostri punti di forza</h2>
+      <div class="strengths-container">
+        <div class="strength-box">
+          <h3>🎉 Esperienza</h3>
+          <p>20 anni di esperienza nel settore eventi e animazione per bambini.</p>
+          <div class="example">Esempio: eventi aziendali per Coop, Migros, Lidl.</div>
+        </div>
+        <div class="strength-box">
+          <h3>🧩 Personalizzazione</h3>
+          <p>Ogni evento è unico e costruito su misura per i desideri del cliente.</p>
+          <div class="example">Esempio: feste Peppa Pig, Minni, Supereroi, unicorni, ecc.</div>
+        </div>
+        <div class="strength-box">
+          <h3>🤝 Flessibilità</h3>
+          <p>Adattabilità, affidabilità e disponibilità in ogni fase dell’organizzazione.</p>
+          <div class="example">Esempio: gestione eventi in spazi piccoli, parchi o a casa.</div>
+        </div>
       </div>
+    </section>
 
-      <div class="strength-box">
-        <h3>🧩 Cura su misura</h3>
-        <div class="desc">Creiamo feste personalizzate per ogni occasione: battesimi, compleanni, matrimoni o eventi aziendali, con allestimenti unici.</div>
-      </div>
+    <section>
+      <h2>Cosa Facciamo</h2>
+      <p style="text-align:center;">Animazione per bambini, decorazioni personalizzate, mascotte, candy bar, musica e molto altro!</p>
+    </section>
 
-      <div class="strength-box">
-        <h3>🤝 Flessibilità & Affidabilità</h3>
-        <div class="desc">Ci adattiamo a ogni richiesta, anche last-minute, mantenendo sempre uno standard elevato di qualità e organizzazione.</div>
+    <section>
+      <h2>Chi siamo</h2>
+      <p style="text-align:center; max-width: 800px; margin: auto;">
+        Siamo un team creativo e appassionato di eventi per famiglie e aziende, nato dall’amore per i momenti felici e indimenticabili. Happy Moments è più di un nome, è una promessa!
+      </p>
+    </section>
+
+    <section>
+      <h2>Galleria veloce</h2>
+      <div class="gallery-preview">
+        <img src="img/foto1.jpg" alt="Evento 1">
+        <img src="img/foto2.jpg" alt="Evento 2">
+        <img src="img/foto3.jpg" alt="Evento 3">
+        <img src="img/foto4.jpg" alt="Evento 4">
       </div>
+    </section>
+
+    <section class="cta">
+      <h2>Richiedi un preventivo gratuito</h2>
+      <p>Scrivici o chiamaci per organizzare il tuo prossimo Happy Moment!</p>
+      <a href="contatti.html">Contattaci ora</a>
     </section>
   </main>
 
   <footer>
-    © 2025 Happy Moments by De Marco – Tutti i diritti riservati
+    © 2025 Happy Moments by De Marco - Tutti i diritti riservati.
   </footer>
 </body>
 </html>
