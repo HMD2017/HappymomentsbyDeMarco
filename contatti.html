@@ -5,101 +5,94 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Happy Moments - Contatti</title>
   <style>
+    /* Stile identico */
+    *, *::before, *::after { box-sizing: border-box; }
     body {
-      font-family: Arial, sans-serif;
       margin: 0; padding: 0;
-      background: #f9f9f9;
-      text-align: center;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f7f7f7;
+      color: #333;
+      line-height: 1.6;
     }
-
+    a {
+      color: #c42d82;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    a:hover {
+      color: #991f5c;
+    }
     header {
-      background: linear-gradient(90deg, #ffd1dc, #cde7f0);
-      padding: 15px 30px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
       position: sticky;
       top: 0;
-      z-index: 1000;
+      background: #fff;
+      border-bottom: 1px solid #ddd;
+      padding: 15px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 999;
+      box-shadow: 0 2px 6px rgb(0 0 0 / 0.05);
     }
-
+    nav {
+      display: flex;
+      gap: 30px;
+    }
     nav a {
-      margin-right: 20px;
-      color: #333;
-      font-weight: bold;
-      text-decoration: none;
-      font-size: 1.1rem;
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 5px 0;
+      border-bottom: 3px solid transparent;
     }
-
-    nav a:hover {
+    nav a:hover,
+    nav a.active {
+      border-color: #c42d82;
       color: #c42d82;
     }
-
     header img {
-      height: 60px;
+      height: 50px;
+      user-select: none;
     }
-
     main {
-      max-width: 600px;
+      max-width: 960px;
       margin: 40px auto;
-      padding: 20px;
-      background: #ffffff;
-      border-radius: 12px;
-      box-shadow: 0 0 12px rgba(0,0,0,0.1);
-      text-align: left;
+      background: #fff;
+      padding: 30px 40px;
+      border-radius: 8px;
+      box-shadow: 0 8px 16px rgb(0 0 0 / 0.05);
     }
-
-    h1 {
-      color: #c42d82;
-      margin-bottom: 30px;
-      text-align: center;
-    }
-
     form {
+      max-width: 600px;
+      margin: 0 auto;
       display: flex;
       flex-direction: column;
+      gap: 15px;
     }
-
-    label {
-      margin-bottom: 8px;
-      font-weight: bold;
-      color: #555;
-    }
-
     input, textarea {
-      padding: 10px;
-      margin-bottom: 20px;
+      padding: 12px 15px;
       border: 1px solid #ccc;
       border-radius: 6px;
       font-size: 1rem;
       resize: vertical;
+      transition: border-color 0.3s ease;
     }
-
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: #c42d82;
+      box-shadow: 0 0 5px rgb(196 45 130 / 0.5);
+    }
     button {
-      background: #c42d82;
+      background-color: #c42d82;
       color: white;
-      padding: 12px;
       border: none;
-      border-radius: 8px;
+      padding: 14px 20px;
       font-size: 1.1rem;
+      border-radius: 6px;
       cursor: pointer;
-      transition: background 0.3s ease;
+      transition: background-color 0.3s ease;
     }
-
     button:hover {
-      background: #a82565;
-    }
-
-    p.contact-info {
-      text-align: center;
-      margin-top: 10px;
-      font-size: 1.1rem;
-    }
-
-    a {
-      color: #c42d82;
-      text-decoration: underline;
+      background-color: #991f5c;
     }
   </style>
 </head>
@@ -108,31 +101,20 @@
     <nav>
       <a href="index.html">Home</a>
       <a href="galleria.html">Galleria</a>
-      <a href="contatti.html">Contatti</a>
+      <a href="contatti.html" class="active">Contatti</a>
       <a href="servizi.html">Servizi</a>
     </nav>
     <img src="img/logo.jpg" alt="Logo Happy Moments" />
   </header>
 
   <main>
-    <h1>Contatti</h1>
-    <form action="mailto:happymoments_bydemarco@gmx.ch" method="post" enctype="text/plain">
-      <label for="name">Nome:</label>
-      <input type="text" id="name" name="Nome" required />
-
-      <label for="email">E-Mail:</label>
-      <input type="email" id="email" name="Email" required />
-
-      <label for="message">Messaggio:</label>
-      <textarea id="message" name="Messaggio" rows="5" required></textarea>
-
+    <h1>Contattaci</h1>
+    <form action="#" method="post">
+      <input type="text" name="nome" placeholder="Il tuo nome" required />
+      <input type="email" name="email" placeholder="La tua email" required />
+      <textarea name="messaggio" rows="6" placeholder="Il tuo messaggio" required></textarea>
       <button type="submit">Invia</button>
     </form>
-
-    <p class="contact-info">
-      Oppure scrivici a <a href="mailto:happymoments_bydemarco@gmx.ch">happymoments_bydemarco@gmx.ch</a><br />
-      oppure chiamaci al <strong>+41 79 315 75 79</strong> / <strong>+41 78 765 80 51</strong>
-    </p>
   </main>
 </body>
 </html>
