@@ -5,73 +5,95 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Happy Moments - Home</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f0f0f0;
+    /* Reset base */
+    * {
+      box-sizing: border-box;
     }
-
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      background: #fff;
+      color: #333;
+    }
+    /* Header con nav */
     header {
-      background: linear-gradient(90deg, #c42d82, #f9d7e7); /* colori del logo */
-      padding: 10px 30px;
+      background: linear-gradient(90deg, #c42d82, #f9d7e7);
+      padding: 10px 40px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
       position: sticky;
       top: 0;
       z-index: 1000;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
     }
-
     nav a {
-      margin-right: 20px;
       color: white;
-      font-weight: bold;
+      font-weight: 600;
       text-decoration: none;
+      margin-right: 25px;
       font-size: 1.1rem;
+      transition: color 0.3s ease;
     }
-
+    nav a:last-child {
+      margin-right: 0;
+    }
     nav a:hover {
       color: #ffe8f1;
     }
 
-    header img {
-      height: 70px;
+    /* Slideshow container */
+    .slideshow-container {
+      max-width: 900px;
+      margin: 30px auto 40px auto;
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 10px 20px rgba(196,45,130,0.3);
+    }
+    .slide {
+      display: none;
+      width: 100%;
+      height: 300px;
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+    .slide.active {
+      display: block;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
     }
 
     main {
-      padding: 0;
-      margin: 0;
+      max-width: 900px;
+      margin: auto;
+      padding: 0 20px 60px 20px;
+      font-size: 1.2rem;
+      line-height: 1.6;
+      text-align: center;
     }
-
-    .hero {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      background-image: url('img/foto3.jpg'), url('img/foto4.jpg');
-      background-position: center, center bottom;
-      background-size: cover;
-      background-repeat: no-repeat, no-repeat;
-      height: 80vh;
-      color: white;
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+    main h1 {
+      font-weight: 700;
+      color: #c42d82;
+      margin-bottom: 15px;
     }
-
-    .hero h1 {
-      font-size: 2.5rem;
-      background-color: rgba(0, 0, 0, 0.5);
-      padding: 20px;
-      border-radius: 10px;
+    main p {
+      max-width: 600px;
+      margin: 0 auto;
+      color: #555;
     }
 
     footer {
       text-align: center;
       padding: 20px;
-      font-size: 0.9rem;
       background: #f8f8f8;
       color: #777;
+      font-size: 0.9rem;
     }
   </style>
 </head>
@@ -83,18 +105,34 @@
       <a href="galleria.html">Galleria</a>
       <a href="contatti.html">Contatti</a>
     </nav>
-    <img src="img/logo.jpg" alt="Logo Happy Moments" />
+    <img src="img/logo.jpg" alt="Logo Happy Moments" style="height: 60px; border-radius: 8px; box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);" />
   </header>
 
+  <div class="slideshow-container">
+    <div class="slide active" style="background-image: url('img/logo.jpg');"></div>
+    <div class="slide" style="background-image: url('img/logo.jpg');"></div>
+    <div class="slide" style="background-image: url('img/logo.jpg');"></div>
+  </div>
+
   <main>
-    <section class="hero">
-      <h1>Benvenuti in Happy Moments by De Marco</h1>
-    </section>
+    <h1>Benvenuti in Happy Moments by De Marco</h1>
+    <p>Creiamo ricordi indimenticabili per ogni occasione speciale. Scopri i nostri servizi e lasciati accompagnare nella realizzazione dei tuoi momenti felici.</p>
   </main>
 
   <footer>
     © 2025 Happy Moments by De Marco
   </footer>
+
+  <script>
+    // Simple slideshow automatic fade
+    const slides = document.querySelectorAll('.slide');
+    let currentIndex = 0;
+    setInterval(() => {
+      slides[currentIndex].classList.remove('active');
+      currentIndex = (currentIndex + 1) % slides.length;
+      slides[currentIndex].classList.add('active');
+    }, 4000);
+  </script>
 
 </body>
 </html>
