@@ -3,77 +3,85 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Happy Moments by De Marco</title>
+  <title>Happy Moments - Home</title>
   <style>
-    body {
+    * {
       margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      height: 100%;
       font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #97d1dc, #9cc10a, #fae411, #eb3d12, #df031e);
-      color: #fff;
-      text-align: center;
+    }
+
+    .background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      z-index: -1;
+      transition: background-image 1s ease-in-out;
     }
 
     header {
-      background-color: white;
+      background: rgba(255, 255, 255, 0.95);
+      padding: 10px 30px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 10px 30px;
-    }
-
-    header img {
-      height: 100px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 10;
     }
 
     nav a {
+      margin-right: 20px;
       color: #333;
-      text-decoration: none;
-      margin: 0 15px;
       font-weight: bold;
-      font-size: 18px;
+      text-decoration: none;
+      font-size: 1.1rem;
     }
 
     nav a:hover {
-      text-decoration: underline;
+      color: #c42d82;
     }
 
-    .content {
-      max-width: 900px;
-      margin: 50px auto;
-      background: rgba(255, 255, 255, 0.2);
-      padding: 30px;
-      border-radius: 15px;
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    header img {
+      height: 70px;
     }
 
-    .content h1 {
-      color: #fff;
-      font-size: 32px;
-    }
-
-    .content p {
-      color: #f9f9f9;
-      font-size: 18px;
-      line-height: 1.6;
-    }
-
-    .image-row {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      flex-wrap: wrap;
-      margin: 30px 0;
-    }
-
-    .image-row img {
-      width: 250px;
+    main {
+      background: rgba(255, 255, 255, 0.85);
+      margin: 60px auto;
+      padding: 40px 20px;
+      max-width: 800px;
       border-radius: 12px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.4);
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      text-align: center;
+    }
+
+    h1 {
+      color: #c42d82;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 1.2rem;
+      color: #333;
     }
   </style>
 </head>
 <body>
+  <!-- Sfondo dinamico -->
+  <div class="background" id="background"></div>
 
+  <!-- Header -->
   <header>
     <nav>
       <a href="index.html">Home</a>
@@ -83,26 +91,31 @@
     <img src="img/logo.jpg" alt="Logo Happy Moments" />
   </header>
 
-  <div class="content">
+  <!-- Contenuto principale -->
+  <main>
     <h1>Benvenuti su Happy Moments</h1>
-
-    <div class="image-row">
-      <img src="img/foto1.jpg" alt="Evento 1" />
-      <img src="img/foto2.jpg" alt="Evento 2" />
-    </div>
-
     <p>
-      Happy Moments by De Marco organizza eventi privati e aziendali su misura: feste, cerimonie e matrimoni curati nei minimi dettagli.  
-      Il nostro obiettivo è creare momenti unici, ricchi di emozioni, che rimangano nel cuore di chi partecipa.
+      Organizziamo eventi unici e memorabili per ogni occasione speciale.<br />
+      Vivi momenti indimenticabili con noi!
     </p>
-    <p>
-      Ci occupiamo di tutto: dall’idea iniziale all’allestimento finale. Così potrete godervi il vostro evento senza stress, con la certezza che tutto sarà perfetto.
-    </p>
-    <p>
-      Ogni progetto nasce da un incontro conoscitivo per ascoltare i vostri desideri. Poi realizziamo una proposta personalizzata, flessibile e su misura.
-    </p>
-    <p><strong>Happy Moments by De Marco</strong><br />Realizziamo emozioni indimenticabili.</p>
-  </div>
+  </main>
 
+  <!-- Script per slideshow -->
+  <script>
+    const images = ["img/foto3.jpg", "img/foto4.jpg"];
+    let index = 0;
+    const bg = document.getElementById("background");
+
+    function changeBackground() {
+      bg.style.backgroundImage = `url('${images[index]}')`;
+      index = (index + 1) % images.length;
+    }
+
+    // Primo sfondo subito
+    changeBackground();
+
+    // Cambia ogni 5 secondi
+    setInterval(changeBackground, 5000);
+  </script>
 </body>
 </html>
