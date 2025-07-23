@@ -5,135 +5,174 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Happy Moments - Home</title>
   <style>
-    /* Reset base */
-    * {
+    /* Reset e base */
+    *, *::before, *::after {
       box-sizing: border-box;
     }
     body {
+      margin: 0; padding: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin: 0;
-      background: #fff;
+      background-color: #f7f7f7;
       color: #333;
+      line-height: 1.6;
     }
-    /* Header con nav */
-    header {
-      background: linear-gradient(90deg, #c42d82, #f9d7e7);
-      padding: 10px 40px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-    }
-    nav a {
-      color: white;
-      font-weight: 600;
+    a {
+      color: #c42d82;
       text-decoration: none;
-      margin-right: 25px;
-      font-size: 1.1rem;
       transition: color 0.3s ease;
     }
-    nav a:last-child {
-      margin-right: 0;
-    }
-    nav a:hover {
-      color: #ffe8f1;
+    a:hover {
+      color: #991f5c;
     }
 
-    /* Slideshow container */
-    .slideshow-container {
-      max-width: 900px;
-      margin: 30px auto 40px auto;
-      position: relative;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 10px 20px rgba(196,45,130,0.3);
+    /* Header */
+    header {
+      position: sticky;
+      top: 0;
+      background: #fff;
+      border-bottom: 1px solid #ddd;
+      padding: 15px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 999;
+      box-shadow: 0 2px 6px rgb(0 0 0 / 0.05);
     }
-    .slide {
-      display: none;
-      width: 100%;
-      height: 300px;
-      background-position: center;
-      background-size: contain;
-      background-repeat: no-repeat;
+    nav {
+      display: flex;
+      gap: 30px;
     }
-    .slide.active {
-      display: block;
-      animation: fadeIn 1.5s ease-in-out;
+    nav a {
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 5px 0;
+      border-bottom: 3px solid transparent;
     }
-
-    @keyframes fadeIn {
-      from {opacity: 0;}
-      to {opacity: 1;}
-    }
-
-    main {
-      max-width: 900px;
-      margin: auto;
-      padding: 0 20px 60px 20px;
-      font-size: 1.2rem;
-      line-height: 1.6;
-      text-align: center;
-    }
-    main h1 {
-      font-weight: 700;
+    nav a:hover,
+    nav a.active {
+      border-color: #c42d82;
       color: #c42d82;
-      margin-bottom: 15px;
     }
-    main p {
+    header img {
+      height: 50px;
+      user-select: none;
+    }
+
+    /* Main content wrapper */
+    main {
+      max-width: 960px;
+      margin: 40px auto;
+      background: #fff;
+      padding: 30px 40px;
+      border-radius: 8px;
+      box-shadow: 0 8px 16px rgb(0 0 0 / 0.05);
+    }
+
+    /* Titoli */
+    h1, h2 {
+      color: #c42d82;
+      margin-bottom: 24px;
+    }
+
+    /* Paragrafi */
+    p {
+      margin-bottom: 20px;
+      font-size: 1rem;
+    }
+
+    /* Pulsanti e hover box (per servizi o punti di forza) */
+    .strengths-container {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    @media (min-width: 700px) {
+      .strengths-container {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    .strength-box {
+      padding: 20px;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+      cursor: pointer;
+      background: #fff;
+      color: #333;
+      box-shadow: none;
+      user-select: none;
+      text-align: left;
+    }
+    .strength-box:hover {
+      box-shadow: 0 8px 20px rgb(196 45 130 / 0.3);
+      transform: translateY(-4px);
+      border-color: #c42d82;
+      color: #c42d82;
+    }
+    .strength-box h2 {
+      margin-top: 0;
+      font-size: 1.2rem;
+    }
+
+    /* Form Contatti (per la pagina contatti) */
+    form {
       max-width: 600px;
       margin: 0 auto;
-      color: #555;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    input, textarea {
+      padding: 12px 15px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+      resize: vertical;
+      transition: border-color 0.3s ease;
+    }
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: #c42d82;
+      box-shadow: 0 0 5px rgb(196 45 130 / 0.5);
+    }
+    button {
+      background-color: #c42d82;
+      color: white;
+      border: none;
+      padding: 14px 20px;
+      font-size: 1.1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #991f5c;
     }
 
-    footer {
-      text-align: center;
-      padding: 20px;
-      background: #f8f8f8;
-      color: #777;
-      font-size: 0.9rem;
-    }
   </style>
 </head>
 <body>
-
   <header>
-<nav>
-  <a href="index.html">Home</a>
-  <a href="galleria.html">Galleria</a>
-  <a href="contatti.html">Contatti</a>
-  <a href="servizi.html">Servizi</a>
-</nav>
-    <img src="img/logo.jpg" alt="Logo Happy Moments" style="height: 60px; border-radius: 8px; box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);" />
+    <nav>
+      <a href="index.html" class="active">Home</a>
+      <a href="galleria.html">Galleria</a>
+      <a href="contatti.html">Contatti</a>
+      <a href="servizi.html">Servizi</a>
+    </nav>
+    <img src="img/logo.jpg" alt="Logo Happy Moments" />
   </header>
 
-  <div class="slideshow-container">
-    <div class="slide active" style="background-image: url('img/logo.jpg');"></div>
-    <div class="slide" style="background-image: url('img/logo.jpg');"></div>
-    <div class="slide" style="background-image: url('img/logo.jpg');"></div>
-  </div>
-
   <main>
-    <h1>Benvenuti in Happy Moments by De Marco</h1>
-    <p>Creiamo ricordi indimenticabili per ogni occasione speciale. Scopri i nostri servizi e lasciati accompagnare nella realizzazione dei tuoi momenti felici.</p>
+    <!-- Qui incolla il contenuto attuale della pagina home senza modifiche -->
+    <h1>Benvenuti a Happy Moments</h1>
+    <p>Qui il contenuto originale della home...</p>
+
+    <!-- Esempio di box punti di forza o altro -->
+    <div class="strengths-container">
+      <div class="strength-box">Esperienza</div>
+      <div class="strength-box">Personalizzazione</div>
+      <div class="strength-box">Flessibilità</div>
+    </div>
   </main>
-
-  <footer>
-    © 2025 Happy Moments by De Marco
-  </footer>
-
-  <script>
-    // Simple slideshow automatic fade
-    const slides = document.querySelectorAll('.slide');
-    let currentIndex = 0;
-    setInterval(() => {
-      slides[currentIndex].classList.remove('active');
-      currentIndex = (currentIndex + 1) % slides.length;
-      slides[currentIndex].classList.add('active');
-    }, 4000);
-  </script>
-
 </body>
 </html>
