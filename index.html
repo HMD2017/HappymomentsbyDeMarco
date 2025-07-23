@@ -5,31 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Happy Moments - Home</title>
   <style>
-    * {
+    body {
+      font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
-    }
-
-    body, html {
-      height: 100%;
-      font-family: Arial, sans-serif;
-    }
-
-    .background {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-size: cover;
-      background-position: center;
-      z-index: -1;
-      transition: background-image 1s ease-in-out;
+      background: #f0f0f0;
     }
 
     header {
-      background: rgba(255, 255, 255, 0.95);
+      background: linear-gradient(90deg, #c42d82, #f9d7e7); /* colori del logo */
       padding: 10px 30px;
       display: flex;
       justify-content: space-between;
@@ -37,19 +21,19 @@
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
       position: sticky;
       top: 0;
-      z-index: 10;
+      z-index: 1000;
     }
 
     nav a {
       margin-right: 20px;
-      color: #333;
+      color: white;
       font-weight: bold;
       text-decoration: none;
       font-size: 1.1rem;
     }
 
     nav a:hover {
-      color: #c42d82;
+      color: #ffe8f1;
     }
 
     header img {
@@ -57,31 +41,42 @@
     }
 
     main {
-      background: rgba(255, 255, 255, 0.85);
-      margin: 60px auto;
-      padding: 40px 20px;
-      max-width: 800px;
-      border-radius: 12px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      padding: 0;
+      margin: 0;
+    }
+
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-image: url('img/foto3.jpg'), url('img/foto4.jpg');
+      background-position: center, center bottom;
+      background-size: cover;
+      background-repeat: no-repeat, no-repeat;
+      height: 80vh;
+      color: white;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    footer {
       text-align: center;
-    }
-
-    h1 {
-      color: #c42d82;
-      margin-bottom: 20px;
-    }
-
-    p {
-      font-size: 1.2rem;
-      color: #333;
+      padding: 20px;
+      font-size: 0.9rem;
+      background: #f8f8f8;
+      color: #777;
     }
   </style>
 </head>
 <body>
-  <!-- Sfondo dinamico -->
-  <div class="background" id="background"></div>
 
-  <!-- Header -->
   <header>
     <nav>
       <a href="index.html">Home</a>
@@ -91,31 +86,15 @@
     <img src="img/logo.jpg" alt="Logo Happy Moments" />
   </header>
 
-  <!-- Contenuto principale -->
   <main>
-    <h1>Benvenuti su Happy Moments</h1>
-    <p>
-      Organizziamo eventi unici e memorabili per ogni occasione speciale.<br />
-      Vivi momenti indimenticabili con noi!
-    </p>
+    <section class="hero">
+      <h1>Benvenuti in Happy Moments by De Marco</h1>
+    </section>
   </main>
 
-  <!-- Script per slideshow -->
-  <script>
-    const images = ["img/foto3.jpg", "img/foto4.jpg"];
-    let index = 0;
-    const bg = document.getElementById("background");
+  <footer>
+    © 2025 Happy Moments by De Marco
+  </footer>
 
-    function changeBackground() {
-      bg.style.backgroundImage = `url('${images[index]}')`;
-      index = (index + 1) % images.length;
-    }
-
-    // Primo sfondo subito
-    changeBackground();
-
-    // Cambia ogni 5 secondi
-    setInterval(changeBackground, 5000);
-  </script>
 </body>
 </html>
