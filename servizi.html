@@ -5,106 +5,118 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Happy Moments - Servizi</title>
   <style>
+    /* Stile identico alle altre pagine */
+    *, *::before, *::after { box-sizing: border-box; }
     body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f9f9f9;
+      margin: 0; padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f7f7f7;
+      color: #333;
+      line-height: 1.6;
     }
-
+    a {
+      color: #c42d82;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    a:hover {
+      color: #991f5c;
+    }
     header {
-      background: linear-gradient(90deg, #ffd1dc, #cde7f0);
-      padding: 15px 30px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
       position: sticky;
       top: 0;
-      z-index: 1000;
+      background: #fff;
+      border-bottom: 1px solid #ddd;
+      padding: 15px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 999;
+      box-shadow: 0 2px 6px rgb(0 0 0 / 0.05);
     }
-
+    nav {
+      display: flex;
+      gap: 30px;
+    }
     nav a {
-      margin-right: 20px;
-      color: #333;
-      font-weight: bold;
-      text-decoration: none;
-      font-size: 1.1rem;
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 5px 0;
+      border-bottom: 3px solid transparent;
     }
-
-    nav a:hover {
+    nav a:hover,
+    nav a.active {
+      border-color: #c42d82;
       color: #c42d82;
     }
-
     header img {
-      height: 60px;
+      height: 50px;
+      user-select: none;
     }
-
     main {
-      max-width: 1000px;
+      max-width: 960px;
       margin: 40px auto;
-      padding: 20px;
-      background: #ffffff;
-      border-radius: 12px;
-      box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+      background: #fff;
+      padding: 30px 40px;
+      border-radius: 8px;
+      box-shadow: 0 8px 16px rgb(0 0 0 / 0.05);
       text-align: center;
     }
-
     h1 {
-      font-size: 2rem;
-      margin-bottom: 30px;
       color: #c42d82;
+      margin-bottom: 30px;
+      font-size: 2rem;
     }
-
     .strengths-container {
       display: grid;
       grid-template-columns: 1fr;
       gap: 20px;
-    }
-
-    .strength-box {
-      padding: 20px;
-      border-radius: 12px;
-      background: white;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      transition: background 0.3s, transform 0.2s, color 0.3s;
-      cursor: pointer;
       text-align: left;
     }
-
-    .strength-box h2 {
-      margin-top: 0;
-      color: #333;
-    }
-
-    .strength-box p {
-      color: #555;
-      margin-bottom: 0;
-    }
-
-    .strength-box:hover {
-      transform: translateY(-5px);
-    }
-
-    .strength-box.experience:hover {
-      background: #97d1dc;
-      color: white;
-    }
-
-    .strength-box.personalization:hover {
-      background: #fae411;
-      color: #333;
-    }
-
-    .strength-box.flexibility:hover {
-      background: #eb3d12;
-      color: white;
-    }
-
     @media (min-width: 700px) {
       .strengths-container {
         grid-template-columns: repeat(3, 1fr);
       }
+    }
+    .strength-box {
+      padding: 25px 20px;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+      background: #fff;
+      cursor: pointer;
+      user-select: none;
+      box-shadow: none;
+      color: #333;
+      transition: box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+    }
+    .strength-box h2 {
+      margin-top: 0;
+      font-size: 1.3rem;
+      margin-bottom: 15px;
+    }
+    .strength-box p {
+      font-size: 1rem;
+      margin-bottom: 0;
+      color: #555;
+    }
+    .strength-box:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 8px 20px rgb(196 45 130 / 0.3);
+    }
+    .strength-box.experience:hover {
+      background-color: #97d1dc;
+      color: white;
+      border-color: #97d1dc;
+    }
+    .strength-box.personalization:hover {
+      background-color: #fae411;
+      color: #333;
+      border-color: #fae411;
+    }
+    .strength-box.flexibility:hover {
+      background-color: #eb3d12;
+      color: white;
+      border-color: #eb3d12;
     }
   </style>
 </head>
@@ -114,7 +126,7 @@
       <a href="index.html">Home</a>
       <a href="galleria.html">Galleria</a>
       <a href="contatti.html">Contatti</a>
-      <a href="servizi.html">Servizi</a>
+      <a href="servizi.html" class="active">Servizi</a>
     </nav>
     <img src="img/logo.jpg" alt="Logo Happy Moments" />
   </header>
@@ -122,16 +134,16 @@
   <main>
     <h1>I punti di forza di Happy Moments</h1>
     <div class="strengths-container">
-      <div class="strength-box experience">
+      <div class="strength-box experience" tabindex="0">
         <h2>🎉 Esperienza</h2>
         <p>Con 20 anni di esperienza alle spalle come catena leader in Italia, abbiamo acquisito una grande competenza e conoscenza del settore.</p>
       </div>
-      <div class="strength-box personalization">
+      <div class="strength-box personalization" tabindex="0">
         <h2>🧩 Cura su misura</h2>
-        <p>Ogni evento è unico. Offriamo soluzioni personalizzate studiate attentamente in base ai desideri e allo stile dei nostri clienti.</p>
+        <p>Ogni evento è unico. Offriamo soluzioni su misura, studiate attentamente in base ai desideri e allo stile dei nostri clienti.</p>
       </div>
-      <div class="strength-box flexibility">
-        <h2>🤝 Flessibilità e affidabilità</h2>
+      <div class="strength-box flexibility" tabindex="0">
+        <h2>🤝 Adattabilità e fiducia</h2>
         <p>Siamo sempre pronti ad adattarci a ogni esigenza, offrendo massima affidabilità e supporto in ogni fase dell’organizzazione.</p>
       </div>
     </div>
