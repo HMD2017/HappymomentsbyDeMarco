@@ -5,4 +5,145 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Happy Moments - Contatti</title>
   <style>
-    * { box-sizing: border-box
+    * { box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0; background: #fff; color: #333;
+    }
+    header {
+      background: linear-gradient(90deg, #c42d82, #f9d7e7);
+      padding: 10px 40px;
+      display: flex; justify-content: space-between; align-items: center;
+      position: sticky; top: 0; z-index: 1000;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    }
+    nav a {
+      color: white; font-weight: 600; text-decoration: none;
+      margin-right: 25px; font-size: 1.1rem; transition: color 0.3s ease;
+    }
+    nav a:last-child { margin-right: 0; }
+    nav a:hover { color: #ffe8f1; }
+    .slideshow-container {
+      max-width: 900px; margin: 30px auto 40px auto;
+      position: relative; border-radius: 12px; overflow: hidden;
+      box-shadow: 0 10px 20px rgba(196,45,130,0.3);
+    }
+    .slide {
+      display: none; width: 100%; height: 300px;
+      background-position: center; background-size: contain; background-repeat: no-repeat;
+    }
+    .slide.active { display: block; animation: fadeIn 1.5s ease-in-out; }
+    @keyframes fadeIn { from {opacity: 0;} to {opacity: 1;} }
+    main {
+      max-width: 600px; margin: auto; padding: 20px;
+      font-size: 1.1rem; line-height: 1.6; color: #333;
+    }
+    main h1 {
+      font-weight: 700; color: #c42d82; margin-bottom: 20px; text-align: center;
+    }
+    form {
+      display: flex; flex-direction: column; gap: 15px;
+      background: #fafafa; padding: 20px; border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(196,45,130,0.2);
+    }
+    label {
+      font-weight: 600;
+      margin-bottom: 5px;
+      color: #555;
+    }
+    input, textarea {
+      padding: 10px 15px;
+      border: 2px solid #c42d82;
+      border-radius: 8px;
+      font-size: 1rem;
+      resize: vertical;
+      transition: border-color 0.3s ease;
+    }
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: #f062a4;
+      background: #fff0f5;
+    }
+    button {
+      background: #c42d82;
+      color: white;
+      font-weight: 700;
+      font-size: 1.1rem;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background: #a72066;
+    }
+    .contact-info {
+      margin-top: 25px;
+      text-align: center;
+      color: #555;
+      font-size: 1rem;
+    }
+    .contact-info strong {
+      color: #c42d82;
+    }
+    footer {
+      text-align: center; padding: 20px; background: #f8f8f8;
+      color: #777; font-size: 0.9rem;
+      margin-top: 50px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="galleria.html">Galleria</a>
+      <a href="contatti.html">Contatti</a>
+    </nav>
+    <img src="img/logo.jpg" alt="Logo Happy Moments" style="height: 60px; border-radius: 8px; box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);" />
+  </header>
+
+  <div class="slideshow-container">
+    <div class="slide active" style="background-image: url('img/logo.jpg');"></div>
+    <div class="slide" style="background-image: url('img/logo.jpg');"></div>
+    <div class="slide" style="background-image: url('img/logo.jpg');"></div>
+  </div>
+
+  <main>
+    <h1>Contattaci</h1>
+    <form action="mailto:happymoments_bydemarco@gmx.ch" method="POST" enctype="text/plain" >
+      <label for="name">Nome completo</label>
+      <input type="text" id="name" name="Nome" placeholder="Il tuo nome" required />
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="Email" placeholder="tua.email@example.com" required />
+
+      <label for="phone">Telefono</label>
+      <input type="tel" id="phone" name="Telefono" placeholder="+41 79 315 75 79" />
+
+      <label for="message">Messaggio</label>
+      <textarea id="message" name="Messaggio" rows="5" placeholder="Scrivi qui il tuo messaggio..." required></textarea>
+
+      <button type="submit">Invia</button>
+    </form>
+
+    <div class="contact-info">
+      <p><strong>Telefono:</strong> +41 79 315 75 79 / +41 78 765 80 51</p>
+      <p><strong>Email:</strong> <a href="mailto:happymoments_bydemarco@gmx.ch">happymoments_bydemarco@gmx.ch</a></p>
+    </div>
+  </main>
+
+  <footer>© 2025 Happy Moments by De Marco</footer>
+
+  <script>
+    const slides = document.querySelectorAll('.slide');
+    let currentIndex = 0;
+    setInterval(() => {
+      slides[currentIndex].classList.remove('active');
+      currentIndex = (currentIndex + 1) % slides.length;
+      slides[currentIndex].classList.add('active');
+    }, 4000);
+  </script>
+</body>
+</html>
