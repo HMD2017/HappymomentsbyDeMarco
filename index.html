@@ -9,6 +9,7 @@
       font-family: Arial, sans-serif;
       margin: 0;
       background: #f9f9f9;
+      padding: 0;
     }
 
     header {
@@ -39,103 +40,113 @@
       height: 60px;
     }
 
-    main {
-      max-width: 1200px;
-      margin: 40px auto;
-      padding: 20px;
+    .intro-section {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 60px 30px;
+      background-color: #ffffff;
     }
 
-    section {
-      margin-bottom: 60px;
-    }
-
-    h1, h2 {
+    .intro-section .intro-text {
+      flex: 1;
       text-align: center;
+    }
+
+    .intro-section h1 {
       color: #c42d82;
+      font-size: 2.5rem;
+      margin-bottom: 20px;
     }
 
-    .hero {
-      background: linear-gradient(to right, #ffe4ec, #d5f1fa);
-      padding: 60px 20px;
-      border-radius: 20px;
-      text-align: center;
+    .intro-img {
+      flex: 1;
+      max-width: 300px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
 
-    .hero p {
-      font-size: 1.2rem;
-      max-width: 700px;
-      margin: 0 auto;
-    }
-
-    .strengths-container {
+    .features {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 20px;
-      margin-top: 40px;
+      margin: 40px auto;
+      max-width: 1000px;
+      padding: 20px;
     }
 
-    .strength-box {
+    .feature-box {
       padding: 20px;
-      border-radius: 12px;
       background: white;
+      border-radius: 12px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      transition: transform 0.2s, background 0.3s;
+      text-align: left;
+      transition: transform 0.2s;
       cursor: pointer;
     }
 
-    .strength-box:hover {
+    .feature-box:hover {
       transform: scale(1.03);
     }
 
-    .strength-box:hover .example {
-      display: block;
+    .feature-box h2 {
+      margin-top: 0;
+      color: #333;
     }
 
-    .example {
-      display: none;
-      font-size: 0.9rem;
-      margin-top: 10px;
-      color: #666;
+    .feature-box p {
+      margin-bottom: 0;
+      color: #555;
     }
 
-    .gallery-preview {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 15px;
-      margin-top: 30px;
-    }
-
-    .gallery-preview img {
-      width: 100%;
-      border-radius: 10px;
-      object-fit: cover;
-      height: 150px;
-    }
-
-    .cta {
-      background: #c42d82;
+    .feature-box.experience:hover {
+      background: #97d1dc;
       color: white;
-      text-align: center;
-      padding: 40px 20px;
-      border-radius: 12px;
     }
 
-    .cta a {
-      background: white;
+    .feature-box.personalization:hover {
+      background: #fae411;
+      color: #333;
+    }
+
+    .feature-box.flexibility:hover {
+      background: #eb3d12;
+      color: white;
+    }
+
+    .cta-section {
+      background: linear-gradient(90deg, #ffd1dc, #cde7f0);
+      padding: 40px 20px;
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .cta-section h2 {
+      margin-bottom: 10px;
+      font-size: 2rem;
       color: #c42d82;
-      padding: 10px 20px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: bold;
-      display: inline-block;
-      margin-top: 15px;
+    }
+
+    .cta-section p {
+      font-size: 1.1rem;
     }
 
     footer {
+      background: #333;
+      color: white;
       text-align: center;
-      padding: 20px;
-      background: #f1f1f1;
-      font-size: 0.9rem;
+      padding: 15px;
+    }
+
+    @media (max-width: 768px) {
+      .intro-section {
+        flex-direction: column;
+      }
+
+      .intro-img {
+        max-width: 90%;
+        margin-bottom: 20px;
+      }
     }
   </style>
 </head>
@@ -150,64 +161,37 @@
     <img src="img/logo.jpg" alt="Logo Happy Moments" />
   </header>
 
-  <main>
-    <section class="hero">
+  <section class="intro-section">
+    <img src="img/foto7.jpg" alt="Decorazione sinistra" class="intro-img" />
+    <div class="intro-text">
       <h1>Benvenuti da Happy Moments</h1>
-      <p>Organizziamo più di 50 eventi all'anno, con clienti da tutta la Svizzera e l’Italia e collaborazioni con i migliori fornitori. Felicità, colori e professionalità in ogni dettaglio!</p>
-    </section>
+      <p>Organizziamo più di 50 eventi all'anno, con clienti da tutta la Svizzera e l'Italia e collaborazioni con i migliori fornitori.</p>
+    </div>
+    <img src="img/foto6.jpg" alt="Decorazione destra" class="intro-img" />
+  </section>
 
-    <section>
-      <h2>I nostri punti di forza</h2>
-      <div class="strengths-container">
-        <div class="strength-box">
-          <h3>🎉 Esperienza</h3>
-          <p>20 anni di esperienza nel settore eventi e animazione per bambini.</p>
-          <div class="example">Esempio: eventi aziendali per Coop, Migros, Lidl.</div>
-        </div>
-        <div class="strength-box">
-          <h3>🧩 Personalizzazione</h3>
-          <p>Ogni evento è unico e costruito su misura per i desideri del cliente.</p>
-          <div class="example">Esempio: feste Peppa Pig, Minni, Supereroi, unicorni, ecc.</div>
-        </div>
-        <div class="strength-box">
-          <h3>🤝 Flessibilità</h3>
-          <p>Adattabilità, affidabilità e disponibilità in ogni fase dell’organizzazione.</p>
-          <div class="example">Esempio: gestione eventi in spazi piccoli, parchi o a casa.</div>
-        </div>
-      </div>
-    </section>
+  <section class="features">
+    <div class="feature-box experience">
+      <h2>🎉 Esperienza</h2>
+      <p>Con 20 anni di esperienza alle spalle come catena leader in Italia, abbiamo acquisito una grande competenza e conoscenza del settore.</p>
+    </div>
+    <div class="feature-box personalization">
+      <h2>🧩 Cura su misura</h2>
+      <p>Ogni evento è unico. Offriamo soluzioni su misura, studiate attentamente in base ai desideri e allo stile dei nostri clienti.</p>
+    </div>
+    <div class="feature-box flexibility">
+      <h2>🤝 Adattabilità e fiducia</h2>
+      <p>Siamo sempre pronti ad adattarci a ogni esigenza, offrendo massima affidabilità e supporto in ogni fase dell’organizzazione.</p>
+    </div>
+  </section>
 
-    <section>
-      <h2>Cosa Facciamo</h2>
-      <p style="text-align:center;">Animazione per bambini, decorazioni personalizzate, mascotte, candy bar, musica e molto altro!</p>
-    </section>
-
-    <section>
-      <h2>Chi siamo</h2>
-      <p style="text-align:center; max-width: 800px; margin: auto;">
-        Siamo un team creativo e appassionato di eventi per famiglie e aziende, nato dall’amore per i momenti felici e indimenticabili. Happy Moments è più di un nome, è una promessa!
-      </p>
-    </section>
-
-    <section>
-      <h2>Galleria veloce</h2>
-      <div class="gallery-preview">
-        <img src="img/foto1.jpg" alt="Evento 1">
-        <img src="img/foto2.jpg" alt="Evento 2">
-        <img src="img/foto3.jpg" alt="Evento 3">
-        <img src="img/foto4.jpg" alt="Evento 4">
-      </div>
-    </section>
-
-    <section class="cta">
-      <h2>Richiedi un preventivo gratuito</h2>
-      <p>Scrivici o chiamaci per organizzare il tuo prossimo Happy Moment!</p>
-      <a href="contatti.html">Contattaci ora</a>
-    </section>
-  </main>
+  <section class="cta-section">
+    <h2>Contattaci per un preventivo gratuito</h2>
+    <p>Realizza il tuo evento su misura con Happy Moments!</p>
+  </section>
 
   <footer>
-    © 2025 Happy Moments by De Marco - Tutti i diritti riservati.
+    &copy; 2025 Happy Moments by De Marco - Tutti i diritti riservati
   </footer>
 </body>
 </html>
