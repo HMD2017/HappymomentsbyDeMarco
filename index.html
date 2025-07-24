@@ -48,21 +48,24 @@
       text-align: center;
     }
 
-    /* Logo grande ma più piccolo */
-    .hero-logo {
+    /* Nuova sezione con foto7 - logo - foto6 */
+    .hero-container {
       display: flex;
       justify-content: center;
+      align-items: center;
+      gap: 30px;
       margin-bottom: 30px;
+      flex-wrap: wrap;
     }
 
-    .hero-logo img {
-      width: 30%;
-      max-width: 300px;
+    .hero-container img {
+      max-height: 200px;
+      width: auto;
       border-radius: 16px;
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
     }
 
-    /* Presentazione elegante */
+    /* Testo di presentazione */
     .intro-text {
       font-size: 1.4rem;
       margin: 30px auto 60px;
@@ -135,9 +138,11 @@
   </header>
 
   <main>
-    <!-- Logo centrale ridotto -->
-    <div class="hero-logo">
+    <!-- Nuovo blocco con foto7, logo, foto6 -->
+    <div class="hero-container">
+      <img src="img/foto7.jpg" alt="Foto 7" />
       <img src="img/logo.jpg" alt="Logo Happy Moments" />
+      <img src="img/foto6.jpg" alt="Foto 6" />
     </div>
 
     <!-- Testo di presentazione -->
