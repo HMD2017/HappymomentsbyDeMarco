@@ -6,10 +6,11 @@
   <title>Happy Moments - Home</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
       padding: 0;
-      background: #f9f9f9;
+      background: #fdfdfd;
+      color: #333;
     }
 
     header {
@@ -18,10 +19,10 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
       position: sticky;
       top: 0;
       z-index: 1000;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
     }
 
     nav a {
@@ -41,48 +42,33 @@
     }
 
     main {
-      max-width: 1000px;
-      margin: 40px auto;
-      padding: 20px;
-      background: #ffffff;
-      border-radius: 12px;
-      box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 20px;
       text-align: center;
     }
 
-    .logo-top {
-      margin-bottom: 40px;
-    }
-
-    .logo-top img {
-      height: 120px;
-    }
-
-    .intro-flex {
+    /* Logo grande moderno */
+    .hero-logo {
       display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-      margin-bottom: 50px;
-      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 30px;
     }
 
-    .intro-image {
-      flex: 1 1 30%;
+    .hero-logo img {
+      width: 60%;
+      max-width: 600px;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
     }
 
-    .intro-image img {
-      width: 100%;
-      height: auto;
-      border-radius: 10px;
-    }
-
+    /* Presentazione elegante */
     .intro-text {
-      flex: 1 1 35%;
-      font-size: 1.3rem;
-      font-weight: 500;
-      color: #333;
-      text-align: center;
+      font-size: 1.4rem;
+      margin: 30px auto 60px;
+      max-width: 800px;
+      line-height: 1.7;
+      color: #444;
     }
 
     .strengths-container {
@@ -134,14 +120,6 @@
       .strengths-container {
         grid-template-columns: repeat(3, 1fr);
       }
-
-      .intro-flex {
-        flex-wrap: nowrap;
-      }
-
-      .intro-text {
-        font-size: 1.6rem;
-      }
     }
   </style>
 </head>
@@ -157,22 +135,19 @@
   </header>
 
   <main>
-    <div class="logo-top">
-      <img src="img/logo.jpg" alt="Logo centrato" />
+    <!-- Logo grande centrale -->
+    <div class="hero-logo">
+      <img src="img/logo.jpg" alt="Logo Happy Moments" />
     </div>
 
-    <div class="intro-flex">
-      <div class="intro-image">
-        <img src="img/foto7.jpg" alt="Decorazione sinistra" />
-      </div>
-      <div class="intro-text">
-        Organizziamo più di 50 eventi all'anno, con clienti da tutta la Svizzera e l'Italia e collaborazioni con i migliori fornitori.
-      </div>
-      <div class="intro-image">
-        <img src="img/foto6.jpg" alt="Decorazione destra" />
-      </div>
+    <!-- Testo di presentazione -->
+    <div class="intro-text">
+      Benvenuti da <strong>Happy Moments</strong>, il vostro partner per eventi indimenticabili.<br />
+      Organizziamo più di 50 eventi all'anno, accogliendo clienti da tutta la Svizzera e l’Italia.<br />
+      Collaboriamo con i migliori fornitori per offrirvi esperienze su misura, memorabili e professionali.
     </div>
 
+    <!-- Punti di forza -->
     <div class="strengths-container">
       <div class="strength-box experience">
         <h2>🎉 Esperienza</h2>
